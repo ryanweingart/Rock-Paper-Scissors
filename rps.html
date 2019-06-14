@@ -34,9 +34,25 @@
 
     document.onkeyup = function(event) {
 
-        var playerGuess = event.key;
+        var playerAnswer = event.key;
+
+        var computerAnswer = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+        if ((playerAnswer === "r") || (playerAnswer === "p") || (playerAnswer === "s")) {
+
+            if ((playerAnswer === "r" && computerAnswer === "s") ||
+                (playerAnswer === "p" && computerAnswer === "r") ||
+                (playerAnswer === "s" && computerAnswer === "p")) {
+                wins++;
+            } else if (playerAnswer === computerAnswer) {
+                ties++;
+            } else {
+                losses++;
+            }
 
 
+            
+        }
 
     }
     
